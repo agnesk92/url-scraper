@@ -43,6 +43,7 @@ document.onkeydown = function (event) {
   }
 };
 
+
 document.onkeyup = function (event) {
   if (event.key == "C") {
     console.log("keyup");
@@ -54,21 +55,6 @@ document.onkeyup = function (event) {
     endLinkCollection();
   }
 };
-
-
-window.onkeypress = function(event) {
-    //    if (event.key == "S") {
-    //        console.log("Start copying links");
-    //        startLinkCollection();
-    //    }
-    //    if (event.key == "E") {
-    //        console.log("Stop copying links");
-    //        console.log(listOfUrls.length);
-    //        cleanList(listOfUrls);
-    //        console.log(listOfUrls.length);
-    //        endLinkCollection();
-    //    }
-}
 
 
 exportToCsv = function() {
@@ -91,7 +77,10 @@ chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     if( request.message === "clicked_browser_action" ) {
         console.log(listOfUrls);
-        exportToCsv()
+    }
+    else if ( request.message === "start_download") {
+        console.log(request.message);
+        exportToCsv();
     }
   }
 );
