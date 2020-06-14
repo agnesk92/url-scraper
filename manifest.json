@@ -1,13 +1,18 @@
 {
   "manifest_version": 2,
-  "name": "My Cool Extension",
+  "name": "URLCollector",
   "version": "0.1",
   "content_scripts": [
-  {
-    "matches": [
-      "<all_urls>"
-    ],
-    "js": ["content.js"]
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+  "page_action": {
+    "default_icon": {
+      "32": "google-sheets.png"
+    }
   }
-]
 }

@@ -8,3 +8,7 @@ docker build -t scraper:latest .
 # Run container
 docker run --rm --env DISPLAY=unix$DISPLAY -v $XAUTH:/root/.Xauthority -v /tmp/.X11-unix:/tmp/.X11-unix -v `pwd`:/app -it scraper:latest bash
 ```
+
+## Refs
+
+Icons made by <a href="http://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
