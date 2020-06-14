@@ -35,6 +35,12 @@ document.onkeydown = function (event) {
     console.log("keydown");
     startLinkCollection();
   }
+
+  if (event.key == "P") {
+    console.log("keydown");
+    console.log("listOfUrls now is: ");
+    console.log(listOfUrls);
+  }
 };
 
 document.onkeyup = function (event) {
