@@ -70,3 +70,28 @@ window.onkeypress = function(event) {
     //    }
 }
 
+
+exportToCsv = function() {
+    var CsvString = "";
+    listOfUrls.forEach(function(RowItem, RowIndex) {
+        CsvString += RowItem + ',';
+        CsvString += "\r\n";
+    });
+    CsvString = "data:application/csv," + encodeURIComponent(CsvString);
+
+    var x = document.createElement("A");
+    x.setAttribute("href", CsvString );
+    x.setAttribute("download", "urls.csv");
+    document.body.appendChild(x);
+    x.click();
+}
+
+
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+    if( request.message === "clicked_browser_action" ) {
+        console.log(listOfUrls);
+        exportToCsv()
+    }
+  }
+);
