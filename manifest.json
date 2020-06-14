@@ -15,6 +15,12 @@
   },
   "browser_action": {
     "default_icon": "google-sheets.png"
-  }
+  },
+  "icons": {
+      "16": "google-sheets16.png",
+      "32": "google-sheets.png",
+      "64": "google-sheets64.png",
+      "128": "google-sheets128.png"
+    }
 }
 
