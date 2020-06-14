@@ -3,8 +3,8 @@ listOfUrls = [];
 getLink = function() {
     console.log(this.href); // `this` being the element triggering the event.
     listOfUrls.push(this.href);
-    this.style.color = "pink";
-    this.style.background = "yellow";
+//    this.style.color = "pink";
+    this.style.background = "pink";
 }
 
 getLinkTracker = function(link) {
@@ -26,17 +26,41 @@ endLinkCollection = function() {
 }
 
 // Clean list
-cleanList = function() {
-    const unique = [...new Set(listOfUrls)];
+cleanList = function(urls) {
+    listOfUrls = [...new Set(urls)];
 }
 
+document.onkeydown = function (event) {
+  if (event.key == "C") {
+    console.log("keydown");
+    startLinkCollection();
+  }
+};
+
+document.onkeyup = function (event) {
+  if (event.key == "C") {
+    console.log("keyup");
+
+    console.log(listOfUrls.length);
+    cleanList(listOfUrls);
+    console.log(listOfUrls.length);
+
+    endLinkCollection();
+  }
+};
+
+
 window.onkeypress = function(event) {
-    if (event.key == "S") {
-        console.log("Start copying links");
-        startLinkCollection();
-    }
-    if (event.key == "E") {
-        console.log("Stop copying links");
-        endLinkCollection();
-    }
+    //    if (event.key == "S") {
+    //        console.log("Start copying links");
+    //        startLinkCollection();
+    //    }
+    //    if (event.key == "E") {
+    //        console.log("Stop copying links");
+    //        console.log(listOfUrls.length);
+    //        cleanList(listOfUrls);
+    //        console.log(listOfUrls.length);
+    //        endLinkCollection();
+    //    }
 }
+
