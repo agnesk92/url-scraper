@@ -77,12 +77,15 @@ openHelp = function() {
   var help_window = document.createElement("A");
   help_window.setAttribute("href", 'https://github.com/agnesk92/URLScraper/blob/master/README.md');
   help_window.setAttribute("target", "_blank");
-  console.log('HELPING2');
 
   document.body.appendChild(help_window);
-  console.log('Clicking..');
   
   help_window.click();
+}
+
+
+changeTheme = function() {
+  console.log('Change theme..');
 }
 
 
@@ -98,6 +101,10 @@ chrome.runtime.onMessage.addListener(
     else if ( request.message === "help") {
         console.log(request.message);
         openHelp();
+    }
+    else if ( request.message === "change_theme") {
+      console.log(request.message);
+      changeTheme();
     }
   }
 );
