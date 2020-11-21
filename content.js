@@ -1,13 +1,13 @@
 listOfUrls = [];
 
 getLink = function() {
-    console.log(this.href); // `this` being the element triggering the event.
+    console.log(this.href);
     listOfUrls.push(this.href);
-//    this.style.color = "pink";
+    // this.style.color = "pink";
     this.style.background = "pink";
 }
 
-getLinkTracker = function(link) {
+addLinkTracker = function(link) {
     link.addEventListener('mouseover', getLink);
 }
 
@@ -17,7 +17,7 @@ removeLinkTracker = function(link) {
 
 // Add event listener
 startLinkCollection = function() {
-    [].forEach.call(document.querySelectorAll('a'), getLinkTracker);
+    [].forEach.call(document.querySelectorAll('a'), addLinkTracker);
 }
 
 // Remove event listener
@@ -73,6 +73,19 @@ exportToCsv = function() {
 }
 
 
+openHelp = function() {
+  var help_window = document.createElement("A");
+  help_window.setAttribute("href", 'https://github.com/agnesk92/URLScraper/blob/master/README.md');
+  help_window.setAttribute("target", "_blank");
+  console.log('HELPING2');
+
+  document.body.appendChild(help_window);
+  console.log('Clicking..');
+  
+  help_window.click();
+}
+
+
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     if( request.message === "clicked_browser_action" ) {
@@ -81,6 +94,10 @@ chrome.runtime.onMessage.addListener(
     else if ( request.message === "start_download") {
         console.log(request.message);
         exportToCsv();
+    }
+    else if ( request.message === "help") {
+        console.log(request.message);
+        openHelp();
     }
   }
 );
