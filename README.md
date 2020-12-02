@@ -2,7 +2,7 @@
 
 Tiny project to help out smone. :hammer:
 
-## Dev setup
+## Setup
 
 1. Clone the GitHub repo or download from the GitHub page and extract to your prefered location.
 
