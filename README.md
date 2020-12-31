@@ -1,6 +1,6 @@
-# URL Scraper
+# URL Scraper :hammer:
 
-Tiny project to help out smone. :hammer:
+Tiny project to help collect URLs from pages banning autmated data collection.
 
 ## Setup
 
